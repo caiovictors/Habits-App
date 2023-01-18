@@ -5,6 +5,7 @@ import { Header } from "../components/Header";
 import { generateDatesFromYearBeginning } from '../utils/generate-dates-from-year-beginning'
 
 const weekDays = ['D', 'S', 'T', 'Q', 'Q', 'S', 'S']
+
 const datesFromYearStart = generateDatesFromYearBeginning()
 const minimumSummaryDatesSizes = 18 * 5
 const amountOfDaysToFill = minimumSummaryDatesSizes - datesFromYearStart.length
