@@ -11,9 +11,11 @@
     "lint:fix": "eslint src --ext .ts,.tsx --fix"
   },
   "dependencies": {
+    "@radix-ui/react-checkbox": "^1.0.1",
     "@radix-ui/react-dialog": "^1.0.2",
     "@radix-ui/react-popover": "^1.0.3",
     "autoprefixer": "^10.4.13",
+    "axios": "^1.2.3",
     "clsx": "^1.2.1",
     "dayjs": "^1.11.7",
     "phosphor-react": "^1.4.1",
