@@ -11,7 +11,10 @@
     "lint:fix": "eslint src --ext .ts,.tsx --fix"
   },
   "dependencies": {
+    "@radix-ui/react-dialog": "^1.0.2",
+    "@radix-ui/react-popover": "^1.0.3",
     "autoprefixer": "^10.4.13",
+    "clsx": "^1.2.1",
     "dayjs": "^1.11.7",
     "phosphor-react": "^1.4.1",
     "postcss": "^8.4.21",
