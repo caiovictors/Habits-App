@@ -10,8 +10,11 @@
   },
   "dependencies": {
     "@expo-google-fonts/inter": "^0.2.2",
+    "@expo/webpack-config": "^0.17.2",
     "@react-navigation/native": "^6.1.2",
     "@react-navigation/native-stack": "^6.9.8",
+    "axios": "^1.2.3",
+    "clsx": "^1.2.1",
     "dayjs": "^1.11.7",
     "expo": "^47.0.13",
     "expo-font": "~11.0.1",
