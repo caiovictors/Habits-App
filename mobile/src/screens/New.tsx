@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Alert, View, ScrollView, Text, TextInput, TouchableOpacity } from "react-native";
+import Animated, { BounceInLeft } from 'react-native-reanimated';
 import HabitsBoxesIcon from '../assets/habits-boxes.svg'
 import { BackButton } from "../components/BackButton";
 import { Checkbox } from "../components/Checkbox";
@@ -7,12 +8,14 @@ import { Checkbox } from "../components/Checkbox";
 import colors from 'tailwindcss/colors'
 import { Feather } from '@expo/vector-icons'
 import { api } from '../lib/axios';
+import { useNavigation } from '@react-navigation/native';
 
 const availableWeekDays = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado']
 
 export function New() {
   const [weekDays, setWeekDays] = useState<number[]>([])
   const [title, setTitle] = useState('')
+  const { navigate } = useNavigation()
 
   function handleToggleWeekDay(weekDayIndex: number) {
     if (weekDays.includes(weekDayIndex)) {
@@ -27,11 +30,16 @@ export function New() {
       if (!title.trim() || !weekDays.length) {
         return Alert.alert('Novo Hábito', 'Informe o título do hábito e escolha a periodicidade')
       }
-      Alert.alert('Novo Hábito', 'Hábito criado com sucesso!')
       await api.post('/habits', { title, weekDays })
       setTitle('')
       setWeekDays([])
-
+      Alert.alert('Novo Hábito', 'Hábito criado com sucesso!', [
+        {
+          text: 'Ok',
+          onPress: () => navigate('home'),
+        },
+      ])
+      navigate('home')
     } catch (error) {
       console.log(error)
       Alert.alert('Ops', 'Não foi possível criar o hábito')
@@ -44,7 +52,9 @@ export function New() {
         <BackButton />
         <View className='mt-6 flex flex-row justify-between items-center'>
           <Text className=" text-white font-extrabold text-3xl">Criar hábito</Text>
-          <HabitsBoxesIcon />
+          <Animated.View entering={BounceInLeft}>
+            <HabitsBoxesIcon />
+          </Animated.View>
         </View>
         <Text className="mt-6 text-white font-semibold text-base">Qual seu comprometimento?</Text>
         <TextInput
