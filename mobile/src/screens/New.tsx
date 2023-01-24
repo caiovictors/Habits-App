@@ -25,8 +25,7 @@ export function New() {
   async function handleCreateNewHabit() {
     try {
       if (!title.trim() || !weekDays.length) {
-        Alert.alert('Novo Hábito', 'Informe o título do hábito e escolha a periodicidade')
-        return
+        return Alert.alert('Novo Hábito', 'Informe o título do hábito e escolha a periodicidade')
       }
       Alert.alert('Novo Hábito', 'Hábito criado com sucesso!')
       await api.post('/habits', { title, weekDays })

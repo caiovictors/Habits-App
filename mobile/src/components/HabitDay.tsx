@@ -16,10 +16,10 @@ interface Props extends TouchableOpacityProps {
 }
 
 export function HabitDay({ amountOfHabits = 0, amountCompleted = 0, date, ...rest }: Props) {
-  const amountAccomplishedPercentage = amountOfHabits ? generateProgressPercentage(amountCompleted, amountOfHabits) : 0
+  const amountAccomplishedPercentage = amountOfHabits ? generateProgressPercentage(amountOfHabits, amountCompleted) : 0
   const today = dayjs().startOf('day').toDate()
   const isCurrentDay = dayjs(date).isSame(today)
-
+  console.log(amountAccomplishedPercentage)
   return (
     <TouchableOpacity
       className={clsx("rounded-lg border-2 m-1", {

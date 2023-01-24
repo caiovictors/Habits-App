@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useState } from 'react'
 import { Alert, ScrollView, Text, View } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useFocusEffect } from "@react-navigation/native";
 
 import { api } from '../lib/axios'
 import { HabitDay, DAY_SIZE } from "../components/HabitDay";
@@ -19,7 +19,7 @@ const amountOfDaysToFill = minimumSummaryDatesSizes - datesFromYearStart.length
 type SummaryProps = Array<{
   id: string
   date: string
-  amout: number
+  amount: number
   completed: number
 }>
 
@@ -42,9 +42,9 @@ export function Home() {
     }
   }
 
-  useEffect(() => {
+  useFocusEffect(useCallback(() => {
     fetchData()
-  }, [])
+  }, []))
 
   if (loading) {
     return <Loading />
@@ -69,16 +69,14 @@ export function Home() {
         {summary && <View className="flex-row flex-wrap">
           {datesFromYearStart.map(date => {
             const dayWithHabits = summary.find(day => {
-              return dayjs(date).isSame(day.date)
+              return dayjs(date).isSame(day.date, 'day')
             })
-
-
 
             return (
               <HabitDay
                 key={date.toISOString()}
                 date={date}
-                amountOfHabits={dayWithHabits?.amout}
+                amountOfHabits={dayWithHabits?.amount}
                 amountCompleted={dayWithHabits?.completed}
                 onPress={() => navigate('habit', { date: date.toISOString() })}
               />
