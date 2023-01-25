@@ -1,7 +1,7 @@
 import { prisma } from "./lib/prisma"
 import { FastifyInstance } from "fastify"
 import dayjs from 'dayjs'
-import { z } from 'zod'
+import { map, z } from 'zod'
 
 export async function appRoutes(app: FastifyInstance) {
   app.post('/habits', async (request) => {
@@ -69,6 +69,42 @@ export async function appRoutes(app: FastifyInstance) {
 
     return { possibleHabits, completedHabits }
   })
+
+  app.get('/habits', async (request) => {
+    const possibleHabits = await prisma.habit.findMany({
+      where: {
+        visible: true
+      },
+      orderBy: {
+        title: 'asc'
+      },
+      include: {
+        weekDays: {
+          select: {
+            week_day: true
+          },
+        }
+      },
+    })
+
+    return possibleHabits || []
+  })
+
+  app.patch('/habits/delete', async (request) => {
+    const habitsToDelete = z.array(z.string().uuid()).parse(request.body)
+
+    habitsToDelete.map(async habitId =>
+      await prisma.habit.update({
+        where: {
+          id: habitId
+        },
+        data: {
+          visible: false
+        }
+      })
+    )
+  })
+
 
   app.patch('/habits/:id/toggle', async (request) => {
     const toggleHabitParams = z.object({

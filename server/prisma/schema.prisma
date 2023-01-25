@@ -16,6 +16,7 @@ model Habit {
   created_at DateTime
   dayHabits  DayHabit[]
   weekDays   HabitWeekDays[]
+  visible    Boolean         @default(true)
 
   @@map("habits")
 }
