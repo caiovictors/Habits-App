@@ -2,7 +2,9 @@
 CREATE TABLE "habits" (
     "id" TEXT NOT NULL PRIMARY KEY,
     "title" TEXT NOT NULL,
-    "created_at" DATETIME NOT NULL
+    "created_at" DATETIME NOT NULL,
+    "visible_until" DATETIME NOT NULL,
+    "visible" BOOLEAN NOT NULL DEFAULT true
 );
 
 -- CreateTable

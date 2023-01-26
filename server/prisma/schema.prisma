@@ -11,12 +11,13 @@ datasource db {
 }
 
 model Habit {
-  id         String          @id @default(uuid())
-  title      String
-  created_at DateTime
-  dayHabits  DayHabit[]
-  weekDays   HabitWeekDays[]
-  visible    Boolean         @default(true)
+  id            String          @id @default(uuid())
+  title         String
+  created_at    DateTime
+  dayHabits     DayHabit[]
+  weekDays      HabitWeekDays[]
+  visible_until DateTime
+  visible       Boolean         @default(true)
 
   @@map("habits")
 }

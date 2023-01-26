@@ -13,6 +13,7 @@ export async function appRoutes(app: FastifyInstance) {
     const { title, weekDays } = createHabitBody.parse(request.body)
 
     const today = dayjs().startOf('day').toDate()
+    const farAwayDay = dayjs('01-01-3000').endOf('day').toDate()
 
     await prisma.habit.create({
       data: {
@@ -24,7 +25,8 @@ export async function appRoutes(app: FastifyInstance) {
               week_day: weekDay
             }
           })
-        }
+        },
+        visible_until: farAwayDay
       }
     })
 
@@ -45,6 +47,9 @@ export async function appRoutes(app: FastifyInstance) {
       where: {
         created_at: {
           lte: date,
+        },
+        visible_until: {
+          gte: date,
         },
         weekDays: {
           some: {
@@ -92,17 +97,20 @@ export async function appRoutes(app: FastifyInstance) {
 
   app.patch('/habits/delete', async (request) => {
     const habitsToDelete = z.array(z.string().uuid()).parse(request.body)
+    const today = dayjs().endOf('day').add(1).toDate()
 
-    habitsToDelete.map(async habitId =>
-      await prisma.habit.update({
-        where: {
-          id: habitId
-        },
-        data: {
-          visible: false
+
+    await prisma.habit.updateMany({
+      where: {
+        id: {
+          in: habitsToDelete
         }
-      })
-    )
+      },
+      data: {
+        visible_until: today,
+        visible: false
+      }
+    })
   })
 
 
@@ -172,11 +180,11 @@ export async function appRoutes(app: FastifyInstance) {
           JOIN habits H
             ON H.id = HWD.habit_id
             AND H.created_at <= D.date
-          WHERE HWD.week_day = cast(strftime('%w', D.date/1000.0, 'unixepoch') as int)
+            AND H.visible_until >= D.date
+          WHERE HWD.week_day = cast(strftime('%w', D.date/1000.0, 'unixepoch') as int) 
         ) as amount
       FROM days D 
     `
     return summary
   })
-
 }
