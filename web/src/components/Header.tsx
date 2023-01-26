@@ -12,7 +12,7 @@ export function Header() {
         <ButtonDialog buttonTitle='Novo hábito' dialogTitle='Criar hábito' icon={<Plus size={20} className='text-violet-500' />}>
           <NewHabitForm />
         </ButtonDialog>
-        <ButtonDialog buttonTitle='Visualizar hábitos' dialogTitle='Seus hábitos' icon={<Clipboard size={20} className='text-violet-500' />}>
+        <ButtonDialog buttonTitle='Hábitos' dialogTitle='Seus hábitos' icon={<Clipboard size={20} className='text-violet-500' />}>
           <EditHabits />
         </ButtonDialog>
       </div>
