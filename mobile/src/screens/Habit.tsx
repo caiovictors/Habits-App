@@ -93,9 +93,9 @@ export function Habit() {
           ) : <HabitsEmpty />}
         </View>
 
-        {isDateInPast && (
+        {dayInfo?.possibleHabits?.length && isDateInPast ? (
           <Text className="text-zinc-400 mt-10 text-center"> Você não pode editar hábitos de uma data passada.</Text>
-        )}
+        ) : null}
       </ScrollView>
     </View>
   )

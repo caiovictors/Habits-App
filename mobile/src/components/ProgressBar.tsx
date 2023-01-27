@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { View } from 'react-native'
-import Animated, { useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated'
+import Animated, { SlideInLeft, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated'
 interface Props {
   progress?: number
 }
@@ -20,7 +20,7 @@ export function ProgressBar({ progress = 0 }: Props) {
 
   return (
     <View className='w-full h-3 rounded-xl bg-zinc-700 mt-4'>
-      <Animated.View className='h-3 rounded-xl bg-violet-600' style={style}>
+      <Animated.View className='h-3 rounded-xl bg-violet-600' style={style} entering={SlideInLeft}>
 
       </Animated.View>
     </View>

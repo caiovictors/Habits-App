@@ -8,18 +8,22 @@ import clsx from 'clsx'
 interface Props extends TouchableOpacityProps {
   title: string
   checked?: boolean
+  icon?: "check" | "x"
 }
 
-export function Checkbox({ title, checked = false, ...rest }: Props) {
+export function Checkbox({ title, checked = false, icon = "check", ...rest }: Props) {
   return (
     <TouchableOpacity activeOpacity={0.7} className="flex-row mb-2 items-center" {...rest}>
       {checked ?
         <Animated.View
-          className='h-8 w-8 bg-green-500 rounded-lg items-center justify-center'
+          className={clsx('h-8 w-8 rounded-lg items-center justify-center', {
+            'bg-green-500': icon === "check",
+            'bg-red-600': icon === "x"
+          })}
           entering={ZoomIn}
           exiting={ZoomOut}
         >
-          <Feather name="check" size={20} color={colors.white} />
+          <Feather name={icon} size={20} color={colors.white} />
         </Animated.View>
         :
         <View className='h-8 w-8 bg-zinc-900 rounded-lg' />
