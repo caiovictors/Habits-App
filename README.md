@@ -13,7 +13,7 @@ Create, check and follow your habits progress through the year**
 
 # 📐 Layout
 
-<a href="https://www.figma.com/file/pJpaMSKVfCmPUMZJOVwquQ/Habits-(i)-(Community)?node-id=6%3A344&t=x0AKNFDiXn9s4q4x-0">![image](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)</a>
+<a href="https://www.figma.com/file/pJpaMSKVfCmPUMZJOVwquQ/Habits-(i)-(Community)?node-id=6%3A344&t=x0AKNFDiXn9s4q4x-0">![image](https://img.shields.io/badge/Figma-03011c?style=for-the-badge&logo=figma&logoColor=a259ff)</a>
 
 # ⚙️ How to run
 
