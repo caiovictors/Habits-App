@@ -99,16 +99,15 @@ $ npx expo start
 ![view_habits](https://user-images.githubusercontent.com/12973109/215117104-56eeef4c-1274-48ab-aa27-9a7a749a4019.png)
 
 ### :iphone: Mobile App images
+<br />
 
- &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; **➕ Create**               &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; 
-         **✔ Check**                   &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; 
-         **❌ Remove**  
+&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; **➕ Create**            &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp;  &nbsp;           **✔ Check**                   &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;           **❌ Remove**  
 
 <p align="center">
 
-<img src="https://user-images.githubusercontent.com/12973109/215126831-6ac42d67-2eb5-4a36-8055-f05159c11559.gif" alt="drawing" width="300"/>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-<img src="https://user-images.githubusercontent.com/12973109/215129714-ed82f06f-596d-42f4-a044-3d1093f255dc.gif" alt="drawing" width="300"/>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-<img src="https://user-images.githubusercontent.com/12973109/215129482-2598caa6-8fa1-4c28-bbf0-79c4fc7e1f7c.gif" alt="drawing" width="300"/>
+<img src="https://user-images.githubusercontent.com/12973109/215126831-6ac42d67-2eb5-4a36-8055-f05159c11559.gif" alt="drawing" width="260"/>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+<img src="https://user-images.githubusercontent.com/12973109/215129714-ed82f06f-596d-42f4-a044-3d1093f255dc.gif" alt="drawing" width="260"/>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+<img src="https://user-images.githubusercontent.com/12973109/215129482-2598caa6-8fa1-4c28-bbf0-79c4fc7e1f7c.gif" alt="drawing" width="260"/>
 
 </p>
 
